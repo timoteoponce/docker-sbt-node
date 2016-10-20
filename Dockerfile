@@ -13,7 +13,7 @@ RUN ln -sf /usr/lib/ffmpeg/ffmpeg /usr/bin/ffmpeg && \
   chmod a+rx /usr/bin/ffmpeg && \
   chmod a+rx /usr/bin/ffprobe && \
   rm -rf /usr/lib/*.tar.gz && \
-  apk --no-cache add --update openjdk8 curl bash postgres && \
+  apk --no-cache add --update openjdk8 curl bash postgresql && \
   curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | gunzip | tar -x -C /usr/local && \
   apk del curl perl && \
   apk --no-cache add git gcc autoconf libstdc++ && \ 
