@@ -13,6 +13,7 @@ RUN ln -sf /usr/lib/ffmpeg/ffmpeg /usr/bin/ffmpeg && \
   chmod a+rx /usr/bin/ffmpeg && \
   chmod a+rx /usr/bin/ffprobe && \
   rm -rf /usr/lib/*.tar.gz && \
+  curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | gunzip | tar -x -C /usr/local && \
   apt-get update && \
   apt-get install -y postgresql postgresql-contrib git curl && \
   apt-get install sudo && \
