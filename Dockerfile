@@ -17,7 +17,5 @@ RUN ln -sf /usr/lib/ffmpeg/ffmpeg /usr/bin/ffmpeg && \
   apt-get install -y postgresql postgresql-contrib git curl && \
   apt-get install sudo && \
   apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-  npm install -g bower gulp && \
-  npm cache clean
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
