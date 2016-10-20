@@ -14,7 +14,7 @@ RUN ln -sf /usr/lib/ffmpeg/ffmpeg /usr/bin/ffmpeg && \
   chmod a+rx /usr/bin/ffprobe && \
   rm -rf /usr/lib/*.tar.gz && \
   apt-get update && \
-  apt-get install openjdk-8-jre-headless -qqy --no-install-recommends && \
+  apt-get install -y openjdk-8 && \
   apt-get install -y postgresql postgresql-contrib git curl && \
   apt-get install sudo && \
   apt-get clean && \
