@@ -5,7 +5,6 @@ MAINTAINER Timoteo Ponce <timo.slack@gmail.com>
 # INSTALL JAVA, SBT and other deps
 ENV SBT_VERSION 0.13.11
 ENV SBT_HOME /usr/local/sbt
-ENV PATH ${PATH}:${SBT_HOME}/bin
 ENV JAVA_HOME /usr/jdk1.8.0_66
 
 ADD ffmpeg.tar.gz /usr/lib/.
@@ -18,9 +17,10 @@ RUN ln -sf /usr/lib/ffmpeg/ffmpeg /usr/bin/ffmpeg && \
   apt-get install -y postgresql postgresql-contrib git curl && \
   apt-get install sudo && \
   apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-  curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | gunzip | tar -x -C /usr/local && \
-  curl \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+
+RUN curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | gunzip | tar -x -C /usr/local
+RUN  curl \
   --silent \
   --location \
   --retry 3 \
@@ -32,3 +32,4 @@ RUN ln -sf /usr/lib/ffmpeg/ffmpeg /usr/bin/ffmpeg && \
     && rm -rf $JAVA_HOME/src.zip $JAVA_HOME/javafx-src.zip $JAVA_HOME/man
 
 ENV PATH ${PATH}:${JAVA_HOME}/bin
+ENV PATH ${PATH}:${SBT_HOME}/bin
