@@ -21,6 +21,7 @@ RUN ln -sf /usr/lib/ffmpeg/ffmpeg /usr/bin/ffmpeg && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \ 
   cd /tmp && \
   curl -L -O -H "Cookie: oraclelicense=accept-securebackup-cookie" -k "http://download.oracle.com/otn-pub/java/jdk/8u74-b02/jre-8u74-linux-x64.tar.gz" && \
+  mkdir /srv && \
   tar xf jre-8u74-linux-x64.tar.gz -C /srv/java && \
   rm -f jre-8u74-linux-x64.tar.gz && \
   ln -s /srv/java/jre* /srv/java/jre && \
